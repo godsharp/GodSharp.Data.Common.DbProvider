@@ -13,7 +13,7 @@ nuget:
   account_feed: true
   project_feed: true
 build:
-  project: GodSharp.Data.Common.DbProvider.sln
+  project: src\GodSharp.Data.Common.DbProvider\GodSharp.Data.Common.DbProvider.csproj
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
