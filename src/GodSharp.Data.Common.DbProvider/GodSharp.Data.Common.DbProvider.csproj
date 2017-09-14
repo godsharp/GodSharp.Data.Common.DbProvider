@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'==''">netstandard1.3;netstandard2.0;</TargetFrameworks>
+    <TargetFrameworks Condition="'$(LibraryFrameworks)'!=''">$(LibraryFrameworks)</TargetFrameworks>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>DbProvider,DbProviderFactories,GodSharp</PackageTags>
+    <Company>GodSharp</Company>
+    <Authors>seayxu</Authors>
+    <Description>DbProviderFactory Factory libary for .NET Core.</Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/godsharp/GodSharp.Data.Common.DbProvider.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/godsharp/GodSharp.Data.Common.DbProvider</PackageProjectUrl>
+    <Copyright>Copyright © GodSharp 2017</Copyright>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/26563296</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/godsharp/GodSharp.Data.Common.DbProvider/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.0-preview1</Version>
+    <EnableDefaultItems>true</EnableDefaultItems>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputPath>..\..\output\</OutputPath>
+    <DocumentationFile>$(Configuration)\GodSharp.Data.Common.DbProvider.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard1.3'">
+    <DefineConstants>NETSTANDARD1_3;$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <DefineConstants>NETSTANDARD2_0;$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.4.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="db.provider.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
