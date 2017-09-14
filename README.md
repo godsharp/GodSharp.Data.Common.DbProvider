@@ -1,6 +1,8 @@
 # GodSharp.Data.Common.DbProvider
 DbProviderFactory Factory libary for .NET Core.
 
+[![AppVeyor build status](https://img.shields.io/appveyor/ci/seayxu/godsharp-data-common-dbprovider.svg?label=appveyor&style=flat-square)](https://ci.appveyor.com/project/seayxu/godsharp-data-common-dbprovider/) [![NuGet](https://img.shields.io/nuget/v/GodSharp.Data.Common.DbProvider.svg?label=nuget&style=flat-square)](https://www.nuget.org/packages/GodSharp.Data.Common.DbProvider/) [![MyGet](https://img.shields.io/myget/seay/v/GodSharp.Data.Common.DbProvider.svg?label=myget&style=flat-square)](https://www.myget.org/Package/Details/seay?packageType=nuget&packageId=GodSharp.Data.Common.DbProvider)
+
 Supported netstandard1.3 and netstandard2.0.
 
 # Getting Started

@@ -1,0 +1,48 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+skip_branch_with_pr: true
+image: Visual Studio 2017
+configuration: Release
+platform: Any CPU
+clone_folder: c:\projects\GodSharp.Data.Common.DbProvider
+install:
+- cmd: dotnet restore
+nuget:
+  account_feed: true
+  project_feed: true
+build:
+  project: GodSharp.Data.Common.DbProvider.sln
+  publish_nuget: true
+  include_nuget_references: true
+  verbosity: minimal
+test: off
+deploy:
+- provider: NuGet
+  server: https://www.nuget.org/api/v2/package
+  api_key:
+    secure: s388/c8yQWnGyZ9v9cUDfBe4ud6MFl/ouUEEBruiN5j5+LjSQ4giGKMKuLuvglS1
+  skip_symbols: true
+  artifact: /.*\.nupkg/
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true
+- provider: NuGet
+  server: https://www.myget.org/F/seay/api/v2/package
+  api_key:
+    secure: CKm5m2qGYNYnh5yDUE2zKfN+JKBmO5xmtG80AP0yni9yPBqDOaRQ48Y/4k8KGo2y
+  skip_symbols: true
+  artifact: /.*\.nupkg/
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true
+- provider: GitHub
+  auth_token:
+    secure: uCHTzET52dtiexqTKhgQmup+EBGZs1Afw6eBMfvN4PbQ720YaybNd890Y96ISZ0T
+  artifact: /.*\.(?:nupkg)/
+  draft: true
+  force_update: true
+  on:
+    branch: master
+    APPVEYOR_REPO_TAG: true
