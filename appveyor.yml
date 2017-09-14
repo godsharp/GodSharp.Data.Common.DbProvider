@@ -8,12 +8,12 @@ configuration: Release
 platform: Any CPU
 clone_folder: c:\projects\GodSharp.Data.Common.DbProvider
 install:
-- cmd: dotnet restore
+- ps: dotnet restore -s https://api.nuget.org/v3/index.json
 nuget:
   account_feed: true
   project_feed: true
 build:
-  project: src\GodSharp.Data.Common.DbProvider\GodSharp.Data.Common.DbProvider.csproj
+  project: GodSharp.Data.Common.DbProvider.sln
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
